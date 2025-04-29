@@ -5,14 +5,14 @@ import { motion } from "framer-motion"
 export default function Projects() {
   return (
     <div className="border-b border-neutral-900 pb-4">
-      <motion.h1 
+      <motion.h1
       whileInView={{opacity:1,y:0}}
       initial={{opacity:0,y:-100}}
       transition={{duration:0.5}}
       className="my-20 text-center text-4xl">Projects</motion.h1>
       <div>
         {PROJECTS.map((x, index) => (
-            <div key={index} className="mb-8 flex flex-wrap lg:justify-center">
+            <div key={index} className="mb-8 flex flex-wrap items-center lg:justify-center">
               <motion.div
                whileInView={{opacity:1,x:0}}
                initial={{opacity:0,x:-100}}
@@ -26,14 +26,15 @@ export default function Projects() {
                   height={150}
                 />
               </motion.div>
-            
 
-            <motion.div 
+
+            <motion.div
              whileInView={{opacity:1,x:0}}
              initial={{opacity:0,x:100}}
              transition={{duration:1}}
             className="w-full max-w-xl lg:w-3/4">
-              <h6 className="mb-2 font-semibold">{x.title}</h6>
+              <h6 className="mb-2 font-semibold">{x.title} {x.link && <> - <a  target="_blank" className='text-blue-400 hover:underline' style={{color : ''}} href={x.link}> Github Link </a> </>} {x.webLink && <> - <a  target="_blank" className='text-blue-400 hover:underline' style={{color : ''}} href={x.webLink}> Link </a> </>}
+              </h6>
               <p className="mb-4 text-neutral-400">{x.description}</p>
               {x.technologies.map((tech, index) => (
                 <span
